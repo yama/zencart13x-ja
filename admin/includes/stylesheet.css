@@ -9,12 +9,15 @@
  */
 @import url("menu.css");/* including stylesheet for dhtml menu */
 @import url("index.css");/* including stylesheet for index.php */
+html {font-size:100.01%}
+body {font-size:75%;font-family:Helvetica, Arial, sans-serif;}
+input,select,textarea,table {font:inherit;}
+
 a{
 color:#0000ff;
 text-decoration:none;
 }
 a,body,html,table{
-font:normal normal 11px Verdana,sans-serif;
 }
 a:hover{
 color:#0000ff;
@@ -128,12 +131,10 @@ body#login legend{
 background:#ffffff;
 border:1px solid #003D00;
 color:#333333;
-font-size:90%;
 padding:0.2em 0.5em;
 text-align:right;
 }
 checkbox,input,radio,select,textarea,file{
-font-size:11px;
 }
 textarea {
 width: 80%;
@@ -268,7 +269,6 @@ background-color:#dee4e8;
 .dataTableRowSpacer,td.dataTableRowSpacer,TR.dataTableRowSpacer{
 background-color:#d7d6cc;
 color:#ff6600;
-font-size:11px;
 font-weight:bold;
 line-height:1.0;
 }
@@ -289,7 +289,6 @@ border-width:1px;
 }
 .formAreaTitle{
 font-family:Tahoma,Verdana,Arial,sans-serif;
-font-size:12px;
 font-weight:bold;
 }
 .headerBar{
@@ -351,7 +350,6 @@ cursor:pointer;
 cursor:hand;
 }
 .smallText{
-font-size:9px;
 }
 .specialPrice{
 color:#ff6600;
