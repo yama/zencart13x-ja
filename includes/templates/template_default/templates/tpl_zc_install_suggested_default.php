@@ -5,7 +5,7 @@ $instPath = (file_exists('zc_install/index.php')) ? 'zc_install/index.php' : (fi
 $docsPath = (file_exists('docs/index.html')) ? 'docs/index.html' : (file_exists('../docs/index.html') ? '../docs/index.html' : '');
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="ja">
 <head>
 <title>System Setup Required</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -17,6 +17,10 @@ $docsPath = (file_exists('docs/index.html')) ? 'docs/index.html' : (file_exists(
 <meta name="robots" content="noindex, nofollow" />
 <style type="text/css">
 <!--
+html {font-size:100.01%;}
+body {font-size:82.5%;font-color:#333;}
+p, li {line-height:1.6;}
+
 .systemError {color: #FFFFFF}
 -->
 </style>
@@ -29,8 +33,8 @@ $docsPath = (file_exists('docs/index.html')) ? 'docs/index.html' : (file_exists(
 <div>
 <img src="<?php echo $relPath; ?>includes/templates/template_default/images/logo.gif" alt="Zen Cart&trade;" title=" Zen Cart&trade; " width="192" height="64" border="0" />
 </div>
-<h1>Zen Cart へようこそ</h1>
-<h2>このページが表示される場合はいくつかの原因があります:</h2>
+<h1>Zen Cart へようこそ。</h1>
+<h2>このページが表示される場合はいくつかの原因があります。</h2>
 <ol>
 <li><strong>Zen Cartを初めて</strong>作動させ、まだ通常のインストールの手順が済んでいない場合。<br />
 もし、そうであれば...
@@ -45,8 +49,7 @@ $docsPath = (file_exists('docs/index.html')) ? 'docs/index.html' : (file_exists(
 もし最近サイトを別のフォルダや別のサーバーに移動するなど、なんらかの理由があって configure.php ファイルを変更していた場合、すべての項目に関して再度設定内容の確認を行い、サーバーに合わせて正しく情報を更新してください。<br />
 zen-cart.com サイトの<a href="http://tutorials.zen-cart.com" target="_blank">Online FAQ and Tutorials</a>は助けになるでしょう。</li>
 </ol>
-<br />
-<h2>インストールを始めるには ...</h2>
+<h2>インストールを始めるには。</h2>
 <ol>
 <?php if ($docsPath) { ?>
 <li><a href="<?php echo $docsPath; ?>">インストールドキュメント</a>はここをクリックすれば見ることができます： <a href="<?php echo $docsPath; ?>">Documentation</a></li>
