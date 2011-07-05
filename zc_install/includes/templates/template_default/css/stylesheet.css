@@ -7,13 +7,18 @@
  * @version $Id: stylesheet.css 7039 2007-09-18 03:51:51Z drbyte $
  */
 
+html {font-size:100.01%;}
 body {
+color:#333;
+font-family:Helvetica, Arial, sans-serif;
+font-size:small;
 background-color: #EEE;
 margin: 0px;
 padding: 0px;
-font: 12px Tahoma, Verdana, Arial, sans-serif;
 text-align: center;
 }
+
+input,select,textarea {font:inherit;}
 
 /*  Column Structure
 --------------------------------- */
@@ -87,7 +92,6 @@ padding: 3px 0 3px 9px;
 width: 124px;
 display: block;
 text-decoration: none;
-color: #333;
 background: #fff;
 }
 
@@ -185,7 +189,7 @@ h2 {
 
 /* Links
 --------------------------------- */
-a:link, a:visited, a:active { color:#0033FF; font-weight: bold; font-size: 1.1em; text-decoration:none; }
+a:link, a:visited, a:active { color:#0033FF; font-weight: bold; text-decoration:none; }
 a:hover { color:#c96e29;}
 a.button { padding: 3px 15px; color: #000; border: 3px outset #666; margin: 0px 5px; background-color: #ceddf0; }
 a.button:hover {background-color: #ceddf0; }
@@ -196,7 +200,7 @@ form { margin: 0; padding: 0; }
 fieldset { margin: 0; padding: 10px; border: 1px solid #666; }
 legend { margin: 0; padding: 0 4px; color: #e80; font-weight: bold;}
 .attention { color: red; }
-input, select, textarea { margin: 10px 5px 0; padding: 0; }
+input, select, textarea { margin: 10px 5px 0;}
 label, span.label { margin: 0; padding: 0; font-weight: bold; }
 
 div.section { margin: 0; padding: 0; clear: both; }
@@ -265,5 +269,4 @@ background-color:#d4ffbd;
 	}
 
 .cfgfilecontent {
-	font-size:11px;
 	}
