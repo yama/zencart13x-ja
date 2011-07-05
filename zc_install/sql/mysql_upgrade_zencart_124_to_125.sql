@@ -61,7 +61,7 @@ CREATE TABLE meta_tags_products_description (
   metatags_keywords TEXT,
   metatags_description TEXT,
   PRIMARY KEY  (products_id,language_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 #insert product type layout settings
@@ -131,7 +131,7 @@ CREATE TABLE admin_activity_log (
   KEY page_accessed (page_accessed),
   KEY access_date (access_date),
   KEY idx_ip_zen (ip_address)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 ### ADD INDEXES:

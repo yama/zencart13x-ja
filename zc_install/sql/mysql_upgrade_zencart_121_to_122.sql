@@ -28,7 +28,7 @@ CREATE TABLE paypal_session (
   saved_session blob NOT NULL,
   expiry int(17) NOT NULL default '0',
   PRIMARY KEY  (unique_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 
@@ -50,7 +50,7 @@ CREATE TABLE project_version_history (
   project_version_ip_address varchar(20) NOT NULL default '',
   PRIMARY KEY  (project_version_id),
   UNIQUE KEY project_version_key (project_version_key)
-) TYPE=MyISAM COMMENT='Database Version Tracking History';
+) ENGINE=MyISAM COMMENT='Database Version Tracking History';
 
 
 

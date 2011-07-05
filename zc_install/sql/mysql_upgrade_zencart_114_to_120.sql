@@ -130,7 +130,7 @@ CREATE TABLE authorizenet (
   time varchar(50) NOT NULL default '',
   session_id varchar(255) NOT NULL default '',
   UNIQUE KEY `id` (`id`)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE customers_wishlist (
   products_id int(13) NOT NULL default '0',
@@ -141,14 +141,14 @@ CREATE TABLE customers_wishlist (
   final_price decimal(8,2) NOT NULL default '0.00',
   products_quantity int(2) NOT NULL default '0',
   wishlist_name varchar(64) default NULL
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE db_cache (
   cache_entry_name varchar(64) NOT NULL default '',
   cache_data blob,
   cache_entry_created int(15) default NULL,
   PRIMARY KEY  (cache_entry_name)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE email_archive (
   archive_id int(11) NOT NULL auto_increment,
@@ -164,7 +164,7 @@ CREATE TABLE email_archive (
   PRIMARY KEY  (archive_id),
   KEY email_to (email_to_name),
   KEY module (email_subject)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE featured (
   featured_id int(11) NOT NULL auto_increment,
@@ -176,13 +176,13 @@ CREATE TABLE featured (
   status int(1) NOT NULL default '1',
   featured_date_available date NOT NULL default '0001-01-01',
   PRIMARY KEY  (featured_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 DROP TABLE IF EXISTS get_terms_to_filter;
 CREATE TABLE get_terms_to_filter (
   get_term_name varchar(255) NOT NULL default '',
   PRIMARY KEY  (get_term_name)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 INSERT INTO get_terms_to_filter VALUES ('manufacturers_id');
 INSERT INTO get_terms_to_filter VALUES ('music_genre_id');
@@ -195,7 +195,7 @@ CREATE TABLE group_pricing (
   last_modified datetime default NULL,
   date_added datetime NOT NULL default '0001-01-01 00:00:00',
   PRIMARY KEY  (group_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE media_clips (
   clip_id int(11) NOT NULL auto_increment,
@@ -205,7 +205,7 @@ CREATE TABLE media_clips (
   date_added datetime NOT NULL default '0001-01-01 00:00:00',
   last_modified datetime NOT NULL default '0001-01-01 00:00:00',
   PRIMARY KEY  (clip_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE media_manager (
   media_id int(11) NOT NULL auto_increment,
@@ -213,19 +213,19 @@ CREATE TABLE media_manager (
   last_modified datetime NOT NULL default '0001-01-01 00:00:00',
   date_added datetime NOT NULL default '0001-01-01 00:00:00',
   PRIMARY KEY  (media_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE media_to_products (
   media_id int(11) NOT NULL default '0',
   product_id int(11) NOT NULL default '0'
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE media_types (
   type_id int(11) NOT NULL auto_increment,
   type_name varchar(64) NOT NULL default '',
   type_ext varchar(8) NOT NULL default '',
   PRIMARY KEY  (type_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE music_genre (
   music_genre_id int(11) NOT NULL auto_increment,
@@ -234,7 +234,7 @@ CREATE TABLE music_genre (
   last_modified datetime default NULL,
   PRIMARY KEY  (music_genre_id),
   KEY IDX_MUSIC_GENRE_NAME (music_genre_name)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE paypal_ipn (
   paypal_ipn_id int(10) unsigned NOT NULL auto_increment,
@@ -271,14 +271,14 @@ CREATE TABLE paypal_ipn (
   date_added datetime NOT NULL default '0001-01-01 00:00:00',
   PRIMARY KEY  (paypal_ipn_id,txn_id),
   KEY idx_paypal_ipn_paypal_ipn_id (paypal_ipn_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE paypal_ipn_address_status (
   address_status_id int(11) NOT NULL auto_increment,
   language_id int(11) NOT NULL default '1',
   address_status_name varchar(64) NOT NULL default '',
   PRIMARY KEY  (address_status_id,language_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 INSERT INTO paypal_ipn_address_status VALUES (1, 1, 'confirmed');
 INSERT INTO paypal_ipn_address_status VALUES (1, 2, 'confirmed');
@@ -293,7 +293,7 @@ CREATE TABLE paypal_ipn_mc_currency (
   language_id int(11) NOT NULL default '1',
   mc_currency_name varchar(64) NOT NULL default '',
   PRIMARY KEY  (mc_currency_id,language_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 INSERT INTO paypal_ipn_mc_currency VALUES (1, 1, 'USD');
 INSERT INTO paypal_ipn_mc_currency VALUES (1, 2, 'USD');
@@ -324,21 +324,21 @@ CREATE TABLE paypal_ipn_orders (
   settle_currency decimal(7,2) NOT NULL default '0.00',
   exchange_rate decimal(7,2) default '0.00',
   PRIMARY KEY  (paypal_ipn_orders_id,paypal_ipn_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE paypal_ipn_orders_memo (
   orders_memo_id int(11) NOT NULL auto_increment,
   paypal_ipn_id int(11) NOT NULL default '1',
   memo text,
   PRIMARY KEY  (orders_memo_id,paypal_ipn_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE paypal_ipn_payment_status (
   payment_status_id int(11) NOT NULL auto_increment,
   language_id int(11) NOT NULL default '1',
   payment_status_name varchar(64) NOT NULL default '',
   PRIMARY KEY  (payment_status_id,language_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 INSERT INTO paypal_ipn_payment_status VALUES (1, 1, 'Completed');
 INSERT INTO paypal_ipn_payment_status VALUES (1, 2, 'Completed');
@@ -365,7 +365,7 @@ CREATE TABLE paypal_ipn_payment_type (
   language_id int(11) NOT NULL default '1',
   payment_type_name varchar(64) NOT NULL default '',
   PRIMARY KEY  (payment_type_id,language_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 INSERT INTO paypal_ipn_payment_type VALUES (1, 1, 'instant');
 INSERT INTO paypal_ipn_payment_type VALUES (1, 2, 'instant');
@@ -379,7 +379,7 @@ CREATE TABLE paypal_ipn_pending_reason (
   language_id int(11) NOT NULL default '1',
   pending_reason_name varchar(64) NOT NULL default '',
   PRIMARY KEY  (pending_reason_id,language_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 INSERT INTO paypal_ipn_pending_reason VALUES (1, 1, 'echeck');
 INSERT INTO paypal_ipn_pending_reason VALUES (1, 2, 'echeck');
@@ -411,7 +411,7 @@ CREATE TABLE paypal_ipn_reason_code (
   language_id int(11) NOT NULL default '1',
   reason_code_name varchar(64) NOT NULL default '',
   PRIMARY KEY  (reason_code_id,language_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 INSERT INTO paypal_ipn_reason_code VALUES (1, 1, 'chargeback');
 INSERT INTO paypal_ipn_reason_code VALUES (1, 2, 'chargeback');
@@ -431,7 +431,7 @@ CREATE TABLE paypal_ipn_txn_type (
   language_id int(11) NOT NULL default '1',
   txn_type_name varchar(64) NOT NULL default '',
   PRIMARY KEY  (txn_type_id,language_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 INSERT INTO paypal_ipn_txn_type VALUES (1, 1, 'web_accept');
 INSERT INTO paypal_ipn_txn_type VALUES (1, 2, 'web_accept');
@@ -452,7 +452,7 @@ CREATE TABLE product_music_extra (
   record_company_id int(11) NOT NULL default '0',
   music_genre_id int(11) NOT NULL default '0',
   PRIMARY KEY  (products_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE product_type_layout (
   configuration_id int(11) NOT NULL auto_increment,
@@ -467,7 +467,7 @@ CREATE TABLE product_type_layout (
   use_function text,
   set_function text,
   PRIMARY KEY  (configuration_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 INSERT INTO product_type_layout (configuration_title, configuration_key, configuration_value, configuration_description, product_type_id, sort_order, set_function, date_added) VALUES ('Show Model Number', 'SHOW_PRODUCT_INFO_MODEL', '1', 'Display Model Number on Product Info 0= off 1= on', '1', '1', 'zen_cfg_select_drop_down(array(array(\'id\'=>\'1\', \'text\'=>\'True\'), array(\'id\'=>\'0\', \'text\'=>\'False\')), ', now());
 INSERT INTO product_type_layout (configuration_title, configuration_key, configuration_value, configuration_description, product_type_id, sort_order, set_function, date_added) VALUES ('Show Weight', 'SHOW_PRODUCT_INFO_WEIGHT', '1', 'Display Weight on Product Info 0= off 1= on', '1', '2', 'zen_cfg_select_drop_down(array(array(\'id\'=>\'1\', \'text\'=>\'True\'), array(\'id\'=>\'0\', \'text\'=>\'False\')), ', now());
@@ -561,7 +561,7 @@ CREATE TABLE product_types (
   date_addded datetime NOT NULL default '0001-01-01 00:00:00',
   last_modified datetime NOT NULL default '0001-01-01 00:00:00',
   PRIMARY KEY  (type_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 INSERT INTO product_types VALUES (1, 'Product - General', 'product', '1', 'Y', '', now(), now());
 INSERT INTO product_types VALUES (2, 'Product - Music', 'product_music', '1', 'Y', '', now(), now());
@@ -572,14 +572,14 @@ INSERT INTO product_types VALUES (5, 'Product - Free Shipping', 'product_free_sh
 CREATE TABLE product_types_to_category (
   product_type_id int(11) NOT NULL default '0',
   category_id int(11) NOT NULL default '0'
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE products_discount_quantity (
   discount_id int(4) NOT NULL default '0',
   products_id int(11) NOT NULL default '0',
   discount_qty decimal(11,3) NOT NULL default '0.000',
   discount_price decimal(15,4) NOT NULL default '0.0000'
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 DROP TABLE IF EXISTS project_version;
@@ -595,7 +595,7 @@ CREATE TABLE project_version (
   project_version_ip_address varchar(20) NOT NULL default '',
   PRIMARY KEY  (project_version_id),
   UNIQUE KEY project_version_key (project_version_key)
-) TYPE=MyISAM COMMENT='Database Version Tracking';
+) ENGINE=MyISAM COMMENT='Database Version Tracking';
 
 INSERT INTO project_version (project_version_id, project_version_key, project_version_major, project_version_minor, project_version_patch_major, project_version_patch_minor, project_version_comment, project_version_date_applied, project_version_ip_address) VALUES (1, 'Zen-Cart Main', '1', '2', '', '', 'Zen-Cart Core Files Version Info', now(), '');
 INSERT INTO project_version (project_version_id, project_version_key, project_version_major, project_version_minor, project_version_patch_major, project_version_patch_minor, project_version_comment, project_version_date_applied, project_version_ip_address) VALUES (2, 'Zen-Cart Database', '1', '2', '', '', 'Zen-Cart Database Patch Level Info', now(), '');
@@ -610,7 +610,7 @@ CREATE TABLE query_builder (
   query_keys_list text NOT NULL,
   PRIMARY KEY  (query_id),
   UNIQUE KEY query_name (query_name)
-) TYPE=MyISAM COMMENT='Stores queries for re-use in Admin email and report modules';
+) ENGINE=MyISAM COMMENT='Stores queries for re-use in Admin email and report modules';
 
 INSERT INTO query_builder VALUES (1, 'email', 'All Customers', 'Returns all customers name and email address for sending mass emails (ie: for newsletters, coupons, GV\'s, messages, etc).', 'select customers_email_address, customers_firstname, customers_lastname from TABLE_CUSTOMERS order by customers_lastname, customers_firstname, customers_email_address', '');
 INSERT INTO query_builder VALUES (2, 'email,newsletters', 'All Newsletter Subscribers', 'Returns name and email address of newsletter subscribers', 'select customers_firstname, customers_lastname, customers_email_address from TABLE_CUSTOMERS where customers_newsletter = \'1\'', '');
@@ -626,7 +626,7 @@ CREATE TABLE record_artists (
   last_modified datetime default NULL,
   PRIMARY KEY  (artists_id),
   KEY IDX_ARTISTS_NAME (artists_name)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE record_artists_info (
   artists_id int(11) NOT NULL default '0',
@@ -635,7 +635,7 @@ CREATE TABLE record_artists_info (
   url_clicked int(5) NOT NULL default '0',
   date_last_click datetime default NULL,
   PRIMARY KEY  (artists_id,languages_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE record_company (
   record_company_id int(11) NOT NULL auto_increment,
@@ -645,7 +645,7 @@ CREATE TABLE record_company (
   last_modified datetime default NULL,
   PRIMARY KEY  (record_company_id),
   KEY IDX_RECORD_COMPANY_NAME (record_company_name)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 CREATE TABLE record_company_info (
   record_company_id int(11) NOT NULL default '0',
@@ -654,7 +654,7 @@ CREATE TABLE record_company_info (
   url_clicked int(5) NOT NULL default '0',
   date_last_click datetime default NULL,
   PRIMARY KEY  (record_company_id,languages_id)
-) TYPE=MyISAM;
+) ENGINE=MyISAM;
 
 
 update banners set banners_group='Wide-Banners' where banners_group='468x50';
