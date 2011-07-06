@@ -8,13 +8,17 @@
  * @version $Id: stylesheet.css 5952 2007-03-03 06:18:46Z drbyte $
  */
 
+html {font-size:100.01%;}
+
 body {
 	margin: 0;
-	font-family: verdana, arial, helvetica, sans-serif;
-	font-size: 62.5%;
+	font-family: helvetica, arial, sans-serif;
+	font-size: 82.5%;
 	color: #000000;
 	background-color: #e5edf5;
 	}
+
+input,select,textarea {font:inherit;}
 
 a img {border: none; }
 
@@ -49,7 +53,7 @@ h3 {
 	font-size: 1.3em;
 	}
 
-h4, h5, h6, LABEL, h4.optionName, LEGEND, ADDRESS, .sideBoxContent, .larger{
+h4, h5, h6, h4.optionName, .larger{
 	font-size: 1.1em;
 	}
 
@@ -71,14 +75,11 @@ h1, h2, h3, h4, h5, h6, p {
 */
 
 CODE {
-	font-family: arial, verdana, helvetica, sans-serif;
-	font-size: 1em;
 	}
 
 FORM, SELECT, INPUT {
 	display: inline;
-	font-size: 1em;
-	margin: 0.1em;
+	margin: 3px;
 	}
 
 TEXTAREA {
@@ -181,7 +182,7 @@ HR {
 #mainWrapper {
 	background-color: #ffffff;
 	text-align: left;
-	width: 750px;
+	width: 960px;
 	vertical-align: top;
 	border: 1px solid #9a9a9a;
 	}
@@ -208,7 +209,6 @@ HR {
 	
 #tagline {
 	color:#000000;
-	font-size: 2em;
 	text-align : center;
 	vertical-align: middle;
 	}
@@ -235,7 +235,6 @@ HR {
 
 .navNextPrevCounter {
 	margin: 0em;
-	font-size: 0.9em;
 	}
 .navNextPrevList {
 	display: inline;
@@ -247,12 +246,10 @@ HR {
 
 #navMainWrapper, #navSuppWrapper, #navCatTabsWrapper {
 	margin: 0em;
-	background-color: #abbbd3;
-	background-image: url(../images/tile_back.gif);
-	padding: 0.5em 0.2em;
-	font-weight: bold;
+	background-color: #375937;
 	color: #ffffff;
-	height: 1%;
+	overflow:hidden;
+	zoom:1;
 	}
 
 #navCatTabsWrapper {
@@ -263,10 +260,8 @@ HR {
 
 #navMain ul, #navSupp ul, #navCatTabs ul {
 	margin: 0;
-	padding: 0.5em 0em;
+	padding: 0;
 	list-style-type: none;
-	text-align: center;
-	line-height: 1.5em;
 	}
 
 #navMain ul li, #navSupp ul li, #navCatTabs ul li {
@@ -319,15 +314,12 @@ HR {
 #navBreadCrumb {
 	padding: 0.5em 0.5em;
 	background-color: #ffffff;
-	font-size: 0.95em;
 	font-weight: bold;
 	margin: 0em;
 	}
 
 #navEZPagesTop {
-	background-color: #abbbd3;
-	background-image: url(../images/tile_back.gif);
-	font-size: 0.95em;
+	background-color: #375937;
 	font-weight: bold;
 	margin: 0em;
 	padding: 0.5em;
@@ -345,6 +337,7 @@ HR {
 /*.content,*/ #productDescription, .shippingEstimatorWrapper {
 	/*font-size: 1.2em;*/
 	padding: 0.5em;
+	line-height:1.6;
 	}
 
 .alert {
@@ -365,7 +358,6 @@ HR {
 	}
 
 .smallText, #siteinfoLegal, #siteinfoCredits, #siteinfoStatus, #siteinfoIP {
-	font-size: 0.9em;
 	}
 
 /*Shopping Cart Display*/
@@ -524,7 +516,7 @@ HR {
 	}
 
 h2.centerBoxHeading {
-	font-size: 1.3em;
+	font-size: 1em;
 	color: #ffffff;
 	}
 
@@ -537,15 +529,13 @@ h3.rightBoxHeading, h3.rightBoxHeading a {
 	color: #ffffff;
 	}
 #manufacturersHeading, #currenciesHeading, #musicgenresHeading, #recordcompaniesHeading, #searchHeading, #search-headerHeading {
-	font-size: 0.9em;
 	color: #ffffff;
 }
 
 .leftBoxHeading, .centerBoxHeading, .rightBoxHeading {
 	margin: 0em;
-	background-color: #abbbd3;
-	background-image: url(../images/tile_back.gif);
-	padding: 0.5em 0.2em;
+	background-color: #375937;
+	padding: 0.3em 0.2em;
 	}
 
 .leftBoxContainer, .rightBoxContainer {
@@ -569,8 +559,11 @@ h3.leftBoxHeading a:hover, h3.rightBoxHeading a:hover {
 	color: #FFFFFF;
 	}
 
-.centeredContent, TH, #cartEmptyText, #cartBoxGVButton, #cartBoxEmpty, #cartBoxVoucherBalance, #navCatTabsWrapper, #navEZPageNextPrev, #bannerOne, #bannerTwo, #bannerThree, #bannerFour, #bannerFive, #bannerSix, #siteinfoLegal, #siteinfoCredits, #siteinfoStatus, #siteinfoIP, .center, .cartRemoveItemDisplay, .cartQuantityUpdate, .cartQuantity, .cartTotalsDisplay, #cartBoxGVBalance, .leftBoxHeading, .centerBoxHeading,.rightBoxHeading, .productListing-data, .accountQuantityDisplay, .ratingRow, LABEL#textAreaReviews, #productMainImage, #reviewsInfoDefaultProductImage, #productReviewsDefaultProductImage, #reviewWriteMainImage, .centerBoxContents, .specialsListBoxContents, .categoryListBoxContents, .additionalImages, .centerBoxContentsSpecials, .centerBoxContentsAlsoPurch, .centerBoxContentsFeatured, .centerBoxContentsNew, .gvBal, .attribImg {
+.centeredContent, TH, #cartEmptyText, #cartBoxGVButton, #cartBoxEmpty, #cartBoxVoucherBalance, #navCatTabsWrapper, #navEZPageNextPrev, #bannerOne, #bannerTwo, #bannerThree, #bannerFour, #bannerFive, #bannerSix, #siteinfoLegal, #siteinfoCredits, #siteinfoStatus, #siteinfoIP, .center, .cartRemoveItemDisplay, .cartQuantityUpdate, .cartQuantity, .cartTotalsDisplay, #cartBoxGVBalance, .productListing-data, .accountQuantityDisplay, .ratingRow, LABEL#textAreaReviews, #productMainImage, #reviewsInfoDefaultProductImage, #productReviewsDefaultProductImage, #reviewWriteMainImage, .centerBoxContents, .specialsListBoxContents, .categoryListBoxContents, .additionalImages, .centerBoxContentsSpecials, .centerBoxContentsAlsoPurch, .centerBoxContentsFeatured, .centerBoxContentsNew, .gvBal, .attribImg {
 	text-align: center;
+	}
+
+.centeredContent, TH, #cartEmptyText, #cartBoxGVButton, #cartBoxEmpty, #cartBoxVoucherBalance, #navCatTabsWrapper, #navEZPageNextPrev, #bannerOne, #bannerTwo, #bannerThree, #bannerFour, #bannerFive, #bannerSix, #siteinfoLegal, #siteinfoCredits, #siteinfoStatus, #siteinfoIP, .center, .cartRemoveItemDisplay, .cartQuantityUpdate, .cartQuantity, .cartTotalsDisplay, #cartBoxGVBalance, .leftBoxHeading, .centerBoxHeading,.rightBoxHeading, .productListing-data, .accountQuantityDisplay, .ratingRow, LABEL#textAreaReviews, #productMainImage, #reviewsInfoDefaultProductImage, #productReviewsDefaultProductImage, #reviewWriteMainImage, .centerBoxContents, .specialsListBoxContents, .categoryListBoxContents, .additionalImages, .centerBoxContentsSpecials, .centerBoxContentsAlsoPurch, .centerBoxContentsFeatured, .centerBoxContentsNew, .gvBal, .attribImg {
 	}
 
 #bestsellers .wrapper {
@@ -677,8 +670,7 @@ TR.tableHeading {
 	}
 
 .productListing-rowheading {
-	background-color: #abbbd3;
-	background-image: url(../images/tile_back.gif);
+	background-color: #375937;
 	height: 2em;
 	color: #FFFFFF;
 	}

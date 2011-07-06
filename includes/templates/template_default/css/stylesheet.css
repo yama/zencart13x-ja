@@ -8,10 +8,11 @@
  * @version $Id: stylesheet.css 5952 2007-03-03 06:18:46Z drbyte $
  */
 
+html {font-size:100.01%;}
 body {
 	margin: 0;
 	font-family: verdana, arial, helvetica, sans-serif;
-	font-size: 62.5%;
+	font-size: 82.5%;
 	color: #000000;
 	background-color: #e5edf5;
 	}
@@ -61,14 +62,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 CODE {
-	font-family: arial, verdana, helvetica, sans-serif;
-	font-size: 1em;
 	}
 
 FORM, SELECT, INPUT {
 	display: inline;
-	font-size: 1em;
-	margin: 0.1em;
+	margin: 3px;
 	}
 
 TEXTAREA {
@@ -207,7 +205,6 @@ HR {
 .navSplitPagesLinks {}
 .navNextPrevCounter {
 	margin: 0em;
-	font-size: 0.9em;
 	}
 .navNextPrevList {
 	display: inline;
@@ -286,7 +283,6 @@ HR {
 	}
 
 #navBreadCrumb, #navEZPagesTop {
-	font-size: 0.95em;
 	font-weight: bold;
 	margin: 0em;
 	padding: 0.5em;
@@ -328,7 +324,6 @@ HR {
 	}
 
 .smallText, #siteinfoLegal, #siteinfoCredits, #siteinfoStatus, #siteinfoIP {
-	font-size: 0.9em;
 	}
 
 /*Shopping Cart Display*/
