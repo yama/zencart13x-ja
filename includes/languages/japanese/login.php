@@ -8,7 +8,7 @@
  */
 
 define('NAVBAR_TITLE', 'ログイン');
-define('HEADING_TITLE', 'いらっしゃいませ<br />サインインしてください');
+define('HEADING_TITLE', 'いらっしゃいませ。サインインしてください');
 
 define('HEADING_NEW_CUSTOMER', '【初めてのご来店・未登録の方は】<br /> お客様の情報を入力し、アカウントを作成してください。');
 define('HEADING_NEW_CUSTOMER_SPLIT', '初めてのお客様はこちらから');

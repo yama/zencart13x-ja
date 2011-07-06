@@ -555,7 +555,7 @@ define('TEXT_LEGEND', '凡例: ');
 define('TEXT_LEGEND_STATUS_OFF', 'ステータス - オフ');
 define('TEXT_LEGEND_STATUS_ON', 'ステータス - オン');
 
-define('TEXT_INFO_MASTER_CATEGORIES_ID', '<strong>注意: マスターカテゴリは、例えばセールなど商品カテゴリ毎に<br />価格設定をするような場合に使用します。</strong>');
+define('TEXT_INFO_MASTER_CATEGORIES_ID', '<strong>注意: マスターカテゴリは、例えばセールなど商品カテゴリごとに価格設定をするような場合に使用します。</strong>');
 define('TEXT_YES', 'Yes');
 define('TEXT_NO', 'No');
 
