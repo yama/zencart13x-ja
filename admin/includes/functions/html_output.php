@@ -334,30 +334,33 @@
 
 ////
 // Output a form pull down menu
-  function zen_draw_pull_down_menu($name, $values, $default = '', $parameters = '', $required = false) {
-//    $field = '<select name="' . zen_output_string($name) . '"';
-    $field = '<select rel="dropdown" name="' . zen_output_string($name) . '"';
-
-    if (zen_not_null($parameters)) $field .= ' ' . $parameters;
-
-    $field .= '>' . "\n";
-
-    if (empty($default) && isset($GLOBALS[$name]) && is_string($GLOBALS[$name]) ) $default = stripslashes($GLOBALS[$name]);
-
-    for ($i=0, $n=sizeof($values); $i<$n; $i++) {
-      $field .= '<option value="' . zen_output_string($values[$i]['id']) . '"';
-      if ($default == $values[$i]['id']) {
-        $field .= ' selected="selected"';
-      }
-
-      $field .= '>' . zen_output_string($values[$i]['text'], array('"' => '&quot;', '\'' => '&#039;', '<' => '&lt;', '>' => '&gt;')) . '</option>' . "\n";
-    }
-    $field .= '</select>' . "\n";
-
-    if ($required == true) $field .= TEXT_FIELD_REQUIRED;
-
-    return $field;
-  }
+function zen_draw_pull_down_menu($name, $values, $default = '', $parameters = '', $required = false)
+{
+	if (empty($default) && isset($GLOBALS[$name]) && is_string($GLOBALS[$name]) ) $default = stripslashes($GLOBALS[$name]);
+	
+	foreach($values as $row)
+	{
+		$value    = zen_output_string($row['id']);
+		$text     = zen_output_string($row['text'], array('"' => '&quot;', '\'' => '&#039;', '<' => '&lt;', '>' => '&gt;'));
+		$selected = ($default == $row['id']) ? ' selected="selected"' : '';
+		$option[] = '<option value="' . $value . '"' . $selected . '>' . $text . '</option>' . "\n";
+	}
+	
+	$src = '<select rel="dropdown" name="[+name+]" [+params+]>[+options+]</select>';
+	$ph['name'] = zen_output_string($name);
+	$ph['params'] = (zen_not_null($parameters)) ? ' ' . $parameters : '';
+	$ph['options'] = join("\n",$option);
+	foreach($ph as $k=>$v)
+	{
+		$k = '[+' . $k . '+]';
+		$src = str_replace($k,$v,$src);
+	}
+	$field = $src . "\n";
+	
+	if ($required == true) $field .= TEXT_FIELD_REQUIRED;
+	
+	return $field;
+}
 ////
 // Hide form elements
   function zen_hide_session_id() {
