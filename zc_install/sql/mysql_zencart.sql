@@ -1905,8 +1905,8 @@ CREATE TABLE languages (
   KEY `idx_languages_name_zen` (`name`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
-INSERT INTO languages (`languages_id`, `name`, `code`, `image`, `directory`, `sort_order`) VALUES(1, 'English', 'en', 'icon.gif', 'english', 1);
-INSERT INTO languages (`languages_id`, `name`, `code`, `image`, `directory`, `sort_order`) VALUES(2, 'Japanese', 'ja', 'icon.gif', 'japanese', 2);
+INSERT INTO languages (`languages_id`, `name`, `code`, `image`, `directory`, `sort_order`) VALUES(1, 'English', 'en', 'icon.gif', 'english', 2);
+INSERT INTO languages (`languages_id`, `name`, `code`, `image`, `directory`, `sort_order`) VALUES(2, 'Japanese', 'ja', 'icon.gif', 'japanese', 1);
 
 -- --------------------------------------------------------
 
