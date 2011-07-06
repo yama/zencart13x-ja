@@ -22,12 +22,12 @@ DELETE FROM configuration WHERE configuration_key = 'BOX_WIDTH_LEFT';
 DELETE FROM configuration WHERE configuration_key = 'BOX_WIDTH_RIGHT';
 
 INSERT INTO configuration (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order,
-last_modified, date_added, use_function, set_function) VALUES ('Column Width - Left Boxes', 'BOX_WIDTH_LEFT', '150px', 'Width of the Left Column Boxes<br />px may
-be included<br />Default = 150px', 19, 1, NULL, '2003-11-21 22:16:36', NULL, NULL);
+last_modified, date_added, use_function, set_function) VALUES ('Column Width - Left Boxes', 'BOX_WIDTH_LEFT', '200px', 'Width of the Left Column Boxes<br />px may
+be included<br />Default = 200px', 19, 1, NULL, '2003-11-21 22:16:36', NULL, NULL);
 
 INSERT INTO configuration (configuration_title, configuration_key, configuration_value, configuration_description, configuration_group_id, sort_order,
-last_modified, date_added, use_function, set_function) VALUES ('Column Width - Right Boxes', 'BOX_WIDTH_RIGHT', '150px', 'Width of the Right Column Boxes<br />px
-may be included<br />Default = 150px', 19, 2, NULL, '2003-11-21 22:16:36', NULL, NULL);
+last_modified, date_added, use_function, set_function) VALUES ('Column Width - Right Boxes', 'BOX_WIDTH_RIGHT', '200px', 'Width of the Right Column Boxes<br />px
+may be included<br />Default = 200px', 19, 2, NULL, '2003-11-21 22:16:36', NULL, NULL);
 
 DELETE FROM configuration WHERE configuration_key = 'MAX_ROW_LISTS_ATTRIBUTES';
 
