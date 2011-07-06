@@ -90,7 +90,6 @@ if (!isset($flag_disable_header) || !$flag_disable_header) {
     </div>
 <?php } // no HEADER_SALES_TEXT or SHOW_BANNERS_GROUP_SET2 ?>
 </div>
-<br class="clearBoth" />
 <!--eof-branding display-->
 
 <!--eof-header logo and navigation display-->
