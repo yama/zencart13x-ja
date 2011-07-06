@@ -14,8 +14,8 @@ body {
 	margin: 0;
 	font-family: helvetica, arial, sans-serif;
 	font-size: 82.5%;
-	color: #000000;
-	background-color: #e5edf5;
+	color: #333333;
+	background-color: #fffcee;
 	}
 
 input,select,textarea {font:inherit;}
@@ -42,7 +42,6 @@ a:active {
 
 h1 {
 	font-size: 1.5em;
-	color: #9a9a9a;
 	}
 
 h2 {
@@ -101,7 +100,6 @@ FIELDSET {
 LEGEND {
 	font-weight: bold;
 	padding: 0.3em;
-	color: black;
 	}
 
 LABEL, h4.optionName {
@@ -193,10 +191,11 @@ HR {
 	}
 
 #logoWrapper{
-	background-image: url(../images/header_bg.jpg);
+/*	background-image: url(../images/header_bg.jpg);*/
 	background-repeat: repeat-x;
-	background-color: #ffffff;
-	height:75px;
+	background-color: #ff8b16;
+	overflow:auto;
+	zoom:1;
 	}
 
 #navColumnOneWrapper, #navColumnTwoWrapper, #mainWrapper {
@@ -208,9 +207,8 @@ HR {
 	}
 	
 #tagline {
-	color:#000000;
-	text-align : center;
-	vertical-align: middle;
+	text-align : right;
+	color:#fff;
 	}
 
 #sendSpendWrapper {
@@ -246,7 +244,7 @@ HR {
 
 #navMainWrapper, #navSuppWrapper, #navCatTabsWrapper {
 	margin: 0em;
-	background-color: #375937;
+	background-color: #f67500;
 	color: #ffffff;
 	overflow:hidden;
 	zoom:1;
@@ -254,13 +252,12 @@ HR {
 
 #navCatTabsWrapper {
 	background-color: #ffffff;
-	color: #9a9a9a;
 	background-image:none;
 }
 
 #navMain ul, #navSupp ul, #navCatTabs ul {
 	margin: 0;
-	padding: 0;
+	padding: 7px 0;
 	list-style-type: none;
 	}
 
@@ -277,7 +274,7 @@ HR {
 	}
 
 #navCatTabs ul li a {
-	color: #9a9a9a;
+	color: #333;
 	}
 
 #navEZPagesTOCWrapper {
@@ -319,7 +316,7 @@ HR {
 	}
 
 #navEZPagesTop {
-	background-color: #375937;
+	background-color: #f67500;
 	font-weight: bold;
 	margin: 0em;
 	padding: 0.5em;
@@ -534,14 +531,14 @@ h3.rightBoxHeading, h3.rightBoxHeading a {
 
 .leftBoxHeading, .centerBoxHeading, .rightBoxHeading {
 	margin: 0em;
-	background-color: #375937;
+	background-color: #f67500;
 	padding: 0.3em 0.2em;
 	}
 
 .leftBoxContainer, .rightBoxContainer {
 	margin: 0em;
 	border: 1px solid #9a9a9a;
-	border-bottom: 5px solid #336633;
+	border-bottom: 5px solid #f67500;
 	margin-top: 1.5em;
 	}
 
@@ -670,7 +667,7 @@ TR.tableHeading {
 	}
 
 .productListing-rowheading {
-	background-color: #375937;
+	background-color: #f67500;
 	height: 2em;
 	color: #FFFFFF;
 	}
