@@ -79,7 +79,7 @@ require($template->get_template_dir('/tpl_products_next_previous.php',DIR_WS_TEM
 
  <!--bof Product description -->
 <?php if ($products_description != '') { ?>
-<div id="productDescription" class="productGeneral biggerText"><?php echo stripslashes($products_description); ?></div>
+<div id="productDescription" class="productGeneral"><?php echo stripslashes($products_description); ?></div>
 <?php } ?>
 <!--eof Product description -->
 <br class="clearBoth" />
