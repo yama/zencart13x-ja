@@ -6,23 +6,20 @@
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: configuration_dhtml.php - amendment for Admin Profiles 2006-04-17 by kuroi
  */
-if (!defined('IS_ADMIN_FLAG')) {
-  die('Illegal Access');
+if (!defined('IS_ADMIN_FLAG')) die('Illegal Access');
+
+$za_heading['text'] = BOX_HEADING_CONFIGURATION;
+$za_heading['link'] = zen_href_link(FILENAME_ALT_NAV, '', 'NONSSL');
+
+$tbl_cfg_group = TABLE_CONFIGURATION_GROUP;
+$sql = "select configuration_group_id as cgID,configuration_group_title as cgTitle from {$tbl_cfg_group} where visible = '1' order by sort_order";
+$configuration_groups = $db->Execute($sql);
+
+$za_contents = array();
+while(!$configuration_groups->EOF)
+{
+	$item['text'] = $configuration_groups->fields['cgTitle'];
+	$item['link'] = zen_href_link(FILENAME_CONFIGURATION, 'gID=' . $configuration_groups->fields['cgID'], 'NONSSL');
+	$za_contents[] = $item;
+	$configuration_groups->MoveNext();
 }
-
-  $za_heading = array('text' => BOX_HEADING_CONFIGURATION, 'link' => zen_href_link(FILENAME_ALT_NAV, '', 'NONSSL'));
-  $za_contents = '';
-  if (1 == 1) {
-    $cfg_groups = '';
-    $configuration_groups = $db->Execute("select configuration_group_id as cgID,
-                                                       configuration_group_title as cgTitle
-                                                from " . TABLE_CONFIGURATION_GROUP . "
-                                                where visible = '1' order by sort_order");
-
-    while (!$configuration_groups->EOF) {
-      $za_contents[] = array('text' => $configuration_groups->fields['cgTitle'], 'link' => zen_href_link(FILENAME_CONFIGURATION, 'gID=' . $configuration_groups->fields['cgID'], 'NONSSL'));
-      $configuration_groups->MoveNext();
-    }
-  }
-//echo $cfg_groups;
-?>

@@ -19,22 +19,19 @@
 // +----------------------------------------------------------------------+
 //  $Id: index.php 5454 2006-12-29 20:10:17Z drbyte $
 //
-  $version_check_index=true;
-  require('includes/application_top.php');
-
-  $admin_dir = ereg_replace(DIR_WS_CATALOG, '', DIR_WS_ADMIN);
-  if ($admin_dir == 'admin/' || $admin_dir == 'admin') $messageStack->add(ERROR_ADMIN_DIR_NAME, 'caution');
-  if (ini_get('register_globals') == '1') $messageStack->add(ERROR_REGISTER_GLOBAL_ON, 'error');
-  $languages = zen_get_languages();
-  $languages_array = array();
-  $languages_selected = DEFAULT_LANGUAGE;
-  for ($i = 0, $n = sizeof($languages); $i < $n; $i++) {
-    $languages_array[] = array('id' => $languages[$i]['code'],
-                               'text' => $languages[$i]['name']);
-    if ($languages[$i]['directory'] == $language) {
-      $languages_selected = $languages[$i]['code'];
-    }
-  }
+$version_check_index=true;
+require('includes/application_top.php');
+$admin_dir = str_replace(DIR_WS_CATALOG, '', DIR_WS_ADMIN);
+if($admin_dir == 'admin/' || $admin_dir == 'admin') $messageStack->add(ERROR_ADMIN_DIR_NAME, 'caution');
+if(ini_get('register_globals') == '1')              $messageStack->add(ERROR_REGISTER_GLOBAL_ON, 'error');
+$languages = zen_get_languages();
+$languages_array = array();
+$languages_selected = DEFAULT_LANGUAGE;
+foreach($languages as $row)
+{
+	$languages_array['id']   = $row['code'];
+	$languages_array['text'] = $row['name'];
+}
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" <?php echo HTML_PARAMS; ?>>
@@ -62,31 +59,25 @@
 <!-- header //-->
 <?php require(DIR_WS_INCLUDES . 'header.php'); ?>
 <!-- header_eof //-->
- <?php
+<?php
 
-  $customers = $db->Execute("select count(*) as count from " . TABLE_CUSTOMERS);
+$customers       = $db->Execute("select count(*) as count from " . TABLE_CUSTOMERS);
+$products        = $db->Execute("select count(*) as count from " . TABLE_PRODUCTS . " where products_status = '1'");
+$products_off    = $db->Execute("select count(*) as count from " . TABLE_PRODUCTS . " where products_status = '0'");
+$reviews         = $db->Execute("select count(*) as count from " . TABLE_REVIEWS);
+$reviews_pending = $db->Execute("select count(*) as count from " . TABLE_REVIEWS . " where status='0'");
+$newsletters     = $db->Execute("select count(*) as count from " . TABLE_CUSTOMERS . " where customers_newsletter = '1'");
+$counter_query   = "select startdate, counter from " . TABLE_COUNTER;
+$counter         = $db->Execute($counter_query);
+$counter_startdate = $counter->fields['startdate'];
+$counter_startdate_formatted = strftime(DATE_FORMAT_SHORT, mktime(0, 0, 0, substr($counter_startdate, 4, 2), substr($counter_startdate, -2), substr($counter_startdate, 0, 4)));
 
-  $products = $db->Execute("select count(*) as count from " . TABLE_PRODUCTS . " where products_status = '1'");
-
-  $products_off = $db->Execute("select count(*) as count from " . TABLE_PRODUCTS . " where products_status = '0'");
-
-  $reviews = $db->Execute("select count(*) as count from " . TABLE_REVIEWS);
-  $reviews_pending = $db->Execute("select count(*) as count from " . TABLE_REVIEWS . " where status='0'");
-
-  $newsletters = $db->Execute("select count(*) as count from " . TABLE_CUSTOMERS . " where customers_newsletter = '1'");
-
-  $counter_query = "select startdate, counter from " . TABLE_COUNTER;
-  $counter = $db->Execute($counter_query);
-  $counter_startdate = $counter->fields['startdate'];
-//  $counter_startdate_formatted = strftime(DATE_FORMAT_LONG, mktime(0, 0, 0, substr($counter_startdate, 4, 2), substr($counter_startdate, -2), substr($counter_startdate, 0, 4)));
-  $counter_startdate_formatted = strftime(DATE_FORMAT_SHORT, mktime(0, 0, 0, substr($counter_startdate, 4, 2), substr($counter_startdate, -2), substr($counter_startdate, 0, 4)));
-
-  $specials = $db->Execute("select count(*) as count from " . TABLE_SPECIALS . " where status= '0'");
-  $specials_act = $db->Execute("select count(*) as count from " . TABLE_SPECIALS . " where status= '1'");
-  $featured = $db->Execute("select count(*) as count from " . TABLE_FEATURED . " where status= '0'");
-  $featured_act = $db->Execute("select count(*) as count from " . TABLE_FEATURED . " where status= '1'");
-  $salemaker = $db->Execute("select count(*) as count from " . TABLE_SALEMAKER_SALES . " where sale_status = '0'");
-  $salemaker_act = $db->Execute("select count(*) as count from " . TABLE_SALEMAKER_SALES . " where sale_status = '1'");
+$specials = $db->Execute("select count(*) as count from " . TABLE_SPECIALS . " where status= '0'");
+$specials_act = $db->Execute("select count(*) as count from " . TABLE_SPECIALS . " where status= '1'");
+$featured = $db->Execute("select count(*) as count from " . TABLE_FEATURED . " where status= '0'");
+$featured_act = $db->Execute("select count(*) as count from " . TABLE_FEATURED . " where status= '1'");
+$salemaker = $db->Execute("select count(*) as count from " . TABLE_SALEMAKER_SALES . " where sale_status = '0'");
+$salemaker_act = $db->Execute("select count(*) as count from " . TABLE_SALEMAKER_SALES . " where sale_status = '1'");
 
 
 ?>
@@ -100,12 +91,12 @@
 	echo '<div class="row"><span class="left">' . BOX_ENTRY_PRODUCTS . ' </span><span class="rigth">' . $products->fields['count'] . '</span></div>';
 	echo '<div class="row"><span class="left">' . BOX_ENTRY_PRODUCTS_OFF . ' </span><span class="rigth">' . $products_off->fields['count'] . '</span></div>';
 	echo '<div class="row"><span class="left">' . BOX_ENTRY_REVIEWS . '</span><span class="rigth">' . $reviews->fields['count']. '</span></div>';
-    if (REVIEWS_APPROVAL=='1') {
+    if (REVIEWS_APPROVAL=='1')
+    {
 	  echo '<div class="row"><span class="left"><a href="' . zen_href_link(FILENAME_REVIEWS, 'status=1', 'NONSSL') . '">' . BOX_ENTRY_REVIEWS_PENDING . '</a></span><span class="rigth">' . $reviews_pending->fields['count']. '</span></div>';
     }
 	echo '<div class="row"><span class="left">' . BOX_ENTRY_NEWSLETTERS . '</span><span class="rigth"> ' . $newsletters->fields['count']. '</span></div>';
-
-	echo '<br /><div class="row"><span class="left">' . BOX_ENTRY_SPECIALS_EXPIRED . '</span><span class="rigth"> ' . $specials->fields['count']. '</span></div>';
+	echo '<div class="row"><span class="left">' . BOX_ENTRY_SPECIALS_EXPIRED . '</span><span class="rigth"> ' . $specials->fields['count']. '</span></div>';
 	echo '<div class="row"><span class="left">' . BOX_ENTRY_SPECIALS_ACTIVE . '</span><span class="rigth"> ' . $specials_act->fields['count']. '</span></div>';
 	echo '<div class="row"><span class="left">' . BOX_ENTRY_FEATURED_EXPIRED . '</span><span class="rigth"> ' . $featured->fields['count']. '</span></div>';
 	echo '<div class="row"><span class="left">' . BOX_ENTRY_FEATURED_ACTIVE . '</span><span class="rigth"> ' . $featured_act->fields['count']. '</span></div>';

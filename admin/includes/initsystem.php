@@ -11,36 +11,36 @@
  * @license http://www.zen-cart.com/license/2_0.txt GNU Public License V2.0
  * @version $Id: initsystem.php 5705 2007-01-27 19:01:07Z wilt $
  */
-if (!defined('IS_ADMIN_FLAG'))
-{
-  die('Illegal Access');
-}
+if (!defined('IS_ADMIN_FLAG')) die('Illegal Access');
 
 $base_dir = DIR_WS_INCLUDES . 'auto_loaders/';
-if (file_exists(DIR_WS_INCLUDES . 'auto_loaders/overrides/' . $loader_file)) {
-  $base_dir = DIR_WS_INCLUDES . 'auto_loaders/overrides/';
+if(file_exists(DIR_WS_INCLUDES . 'auto_loaders/overrides/' . $loader_file))
+{
+	$base_dir = DIR_WS_INCLUDES . 'auto_loaders/overrides/';
 }
+
 /**
- * load the default application_top autoloader file.
- */
+* load the default application_top autoloader file.
+*/
 include($base_dir . $loader_file);
-if ($loader_dir = dir(DIR_WS_INCLUDES . 'auto_loaders')) {
-  while ($loader_file = $loader_dir->read()) {
-    $matchPattern = '/^' . $loaderPrefix . '\./';
-    if ((preg_match($matchPattern, $loader_file) > 0) && (preg_match('/\.php$/', $loader_file) > 0)) {
-      if ($loader_file != $loaderPrefix . '.core.php') {
-        $base_dir = DIR_WS_INCLUDES . 'auto_loaders/';
-        if (file_exists(DIR_WS_INCLUDES . 'auto_loaders/overrides/' . $loader_file)) {
-          $base_dir = DIR_WS_INCLUDES . 'auto_loaders/overrides/';
-        }
-        /**
-         * load the application_top autoloader files.
-         */
-        include($base_dir . $loader_file);
-      }
-    }
-  }
-  $loader_dir->close();
-  unset($loader_dir, $loader_file);
+if($loader_dir = dir(DIR_WS_INCLUDES . 'auto_loaders'))
+{
+	while ($loader_file = $loader_dir->read())
+	{
+		$matchPattern = '/^' . $loaderPrefix . '\./';
+		if ((preg_match($matchPattern, $loader_file) > 0) && (preg_match('/\.php$/', $loader_file) > 0))
+		{
+			if ($loader_file != $loaderPrefix . '.core.php')
+			{
+				$base_dir = DIR_WS_INCLUDES . 'auto_loaders/';
+				if (file_exists(DIR_WS_INCLUDES . 'auto_loaders/overrides/' . $loader_file))
+				{
+					$base_dir = DIR_WS_INCLUDES . 'auto_loaders/overrides/';
+				}
+				include($base_dir . $loader_file); // load the application_top autoloader files.
+			}
+		}
+	}
+	$loader_dir->close();
+	unset($loader_dir, $loader_file);
 }
-?>
